@@ -362,7 +362,7 @@ def find_k_and_l(n):
   # conditions above aren't met
   return (x + t*b, y - t*a)
 
-# assumes c = 4, y = z = 2
+# assumes c = 4 (alphabetsize), y = z = 2 (params for algorithm)
 def make_decoder(n, k=None, l=None):
   if k is None or l is None:
     k,l = find_k_and_l(n)
@@ -455,28 +455,3 @@ def algorithm_R(f, m, n):
       else: break
     # R5 [Adjust x.]
     x = (x + y) % m
-
-if __name__ == '__main__':
-  import sys
-
-  if len(sys.argv) != 2:
-    print "usage: %s <k-mer length>"
-  try:
-    k = int(sys.argv[1])
-  except:
-    print "usage: %s <k-mer length>"
-  if k < 1:
-    print "k-mer length must be at least 1."
-
-  p = True
-
-  d = make_decoder(k)
-
-  table = {base:idx for idx,base in enumerate("ACGT")}
-  table_inv = [c for c,i in sorted(table.items(), key=lambda x:x[1])]
-
-  for line in sys.stdin:
-    i = [table[c] for c in line.rstrip()]
-    kmers = sliding_windows(i, k)
-    for kmer in kmers:
-      print d(kmer), "".join([table_inv[i] for i in kmer]) if p else ""
