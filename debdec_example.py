@@ -1,4 +1,4 @@
-from debdec import make_decoder
+from debdec import make_decoder, sliding_windows
 
 if __name__ == '__main__':
   import sys
