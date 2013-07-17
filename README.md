@@ -24,7 +24,16 @@ As an example, if `file` contained 26-length strings consisting of the symbols A
 
 If you want to use it as a library in your own code:
 
-    arity defaults to 2
+    >>> from debdec import make_decoder
+    >>> d = make_decoder(5) # Assumes alphabet size of 4
+    >>> d([0,1,0,1,1])
+    352
+
+I need to fix the interface to be cleaner, but if binary decoding is needed, `decode_db` can be used:
+
+    >>> from debdec import decode_db
+    >>> decode_db(5, [0,1,0,1,1]) # first parameter is the length
+    9
 
 
 Todo
