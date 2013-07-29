@@ -363,6 +363,7 @@ def find_k_and_l(n):
   return (x + t*b, y - t*a)
 
 # assumes c = 4 (alphabetsize), y = z = 2 (params for algorithm)
+# TODO: fix to allow multiple alphabets
 def make_decoder(n, k=None, l=None):
   if k is None or l is None:
     k,l = find_k_and_l(n)
