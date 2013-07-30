@@ -363,6 +363,7 @@ def find_k_and_l(n):
   return (x + t*b, y - t*a)
 
 # assumes c = 4 (alphabetsize), y = z = 2 (params for algorithm)
+# TODO: fix to allow multiple alphabets
 def make_decoder(n, k=None, l=None):
   if k is None or l is None:
     k,l = find_k_and_l(n)
@@ -400,6 +401,14 @@ def two_cycle(m = 2):
 # (r = 1 when m is odd, r = 2 when m is even)
 def choose_r(m):
   return (m + 1) % 2 + 1
+
+def make_generator(m, n):
+  if n == 1: return one_cycle(m)
+  if n == 2: return two_cycle(m)
+  if n % 2 == 0:
+    a, b = it.tee(make_generator(m,n/2))
+    return algorithm_D(a,b,m,n/2)
+  return algorithm_R(make_generator(m,n-1),m,n-1)
 
 # Algorithm D (Doubly recursive de Bruijn cycle generation)
 # Page 304 Knuth Volume 4A
