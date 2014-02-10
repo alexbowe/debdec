@@ -150,12 +150,14 @@ def decode_sdb(n, k, l, v, f):
 
 # Position of 1^n
 def j(n):
+  #print "calling j(%d)" % (n)
   if n <= 0: return
   if n <= 3: return n
-  b = lambda t: (2**t ^ (-1)**t)/3
+  b = lambda t: (2**t - (-1)**t)/3
   t = count_right_zero_bits(n)
   q = n >> t
   if q == 1: return 2**(n-1) + b(t)
+  print q
   bt = b(t + 2)
   m = int(lg(q))
   m += (4*q)/2**m == 5
