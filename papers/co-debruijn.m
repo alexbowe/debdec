@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 jj[2]=2
 kk[2]=6
 ll[2]=2
@@ -96,3 +98,8 @@ getodd[g_]:=Block[{b,n,j,k},
                 If[j<jj[n],2^n-del[n],If[j==jj[n],del[n],2^n+del[n]]]]]
 test[n_]:=Block[{ff},ff=Table[f[n,k],{k,2^n+n}];
                  Do[If[getpos[Table[ff[[p]],{p,k,k+n-1}]]!=k,Print[k]],{k,2^n-1}]]
+
+getpos[{1,1,1,1,1,1}]
+
+
+
