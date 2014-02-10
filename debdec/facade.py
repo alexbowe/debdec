@@ -2,6 +2,7 @@ import decode
 
 class DeBruijnSequence:
   def __init__(self, window_size):
+    # TODO: support larger alphabets as a parameter
     self.alphabet_size = 2 #len(alphabet) if alphabet else k
     self.window_size = window_size
     self.alphabet = range(self.alphabet_size)
