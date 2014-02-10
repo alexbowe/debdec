@@ -1,10 +1,11 @@
 from debdec import DeBruijnSequence
 
 def wrapped_access(a, i, n):
+  a = list(iter(a))
   return (a[:]+a[:n])[i:i+n]
 
 def decode_test():
-  for n in xrange(1, 7):
+  for n in xrange(1, 9):
     yield (check_all_window_indexes, DeBruijnSequence(n))
 
 # Goes through ALL indexes and checks
@@ -20,7 +21,8 @@ def check_all_window_indexes(dbs):
 def check_window_index_invertibility(dbs, idx):
   n = dbs.window_size
   block = wrapped_access(dbs, idx, n)
-  result = dbs[block]
+  result = dbs.decode(block)
+  print result, idx, block
   if result != idx:
     print "Block: %s, expected index: %d, decoded index: %d" % (block, idx, result)
   return result == idx
