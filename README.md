@@ -11,6 +11,13 @@ As far as I can tell, this is the first public implementation of these algorithm
 possibly even the first implementation.
 
 
+Installation
+------------  
+
+I'll update this later, but you will at least need to install
+[PyJudy](http://www.dalkescientific.com/Python/PyJudy.html).
+
+
 Usage
 -----
 
@@ -36,9 +43,17 @@ I need to fix the interface to be cleaner, but if binary decoding is needed, `de
     9
 
 
+Known Bugs
+----------  
+
+Currently messes up for a string of consecutive 1s, but I also don't have good test coverage yet, and the code is
+hairy (so is the math), so yeah... Don't forget this is an ALPHA.
+
+
 Todo
 ----
 
+0. Improve this documentation (which might be outdated as this code is still EXTREMELY YOUNG)
 1. Write unit tests
 2. Refactor
 3. Provide a facade for a nicer
