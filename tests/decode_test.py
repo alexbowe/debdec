@@ -5,7 +5,7 @@ def wrapped_access(a, i, n):
   return (a[:]+a[:n])[i:i+n]
 
 def decode_test():
-  for n in xrange(1, 9):
+  for n in xrange(1, 11):
     yield (check_all_window_indexes, DeBruijnSequence(n))
 
 # Goes through ALL indexes and checks
