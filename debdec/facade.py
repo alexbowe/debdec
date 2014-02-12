@@ -29,7 +29,7 @@ class DeBruijnSequence:
 
   def _int_idx(self, i):
     # TODO: implement this for alphabet size other than 2 and 4
-    if self.alphabet_size != 2: raise Error("Not yet implemented for alphabet size other than 2.")
+    if self.alphabet_size != 2: raise NotImplementedError("Not yet implemented for alphabet size other than 2.")
     if not -len(self) <= i < len(self):
       raise IndexError("DeBruijnSequence index out of range")
     # TODO: test this... seems to not quite work
@@ -42,9 +42,9 @@ class DeBruijnSequence:
     if self.alphabet_size == 2:
       return decode.decode_db(self.window_size, s)
     elif self.alphabet_size == 4:
-      make_decoder(self.window_size)(s)
+      return decode.make_decoder(self.window_size)(s)
     # TODO: implement this for alphabet size other than 2 and 4
-    raise Error("Not yet implemented for alphabet size other than 2 and 4.") 
+    raise NotImplementedError("Not yet implemented for alphabet size other than 2 and 4.") 
 
   def _slice_idx(self, sl):
     start, stop, step = sl.indices(len(self))
