@@ -29,13 +29,6 @@ If you want to use it as a library in your own code:
     >>> d([0,1,0,1,1])
     352
 
-I need to fix the interface to be cleaner, but if binary decoding is needed, `decode_db` can be used:
-
-    >>> from debdec import decode_db
-    >>> decode_db(5, [0,1,0,1,1]) # first parameter is the length
-    9
-
-
 Todo
 ----
 
